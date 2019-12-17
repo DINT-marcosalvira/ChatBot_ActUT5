@@ -1,0 +1,66 @@
+﻿<Window x:Class="ActividadUT5_1.Settings"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ActividadUT5_1"
+        xmlns:properties="clr-namespace:ActividadUT5_1.Properties"
+        mc:Ignorable="d"
+        Title="Configuración de la aplicación " Height="250" Width="400" ShowInTaskbar="False" ResizeMode="NoResize" Icon="img/conf.ico">
+    <StackPanel Orientation="Vertical">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="2.8*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Label Margin="0,10,5,25" Grid.Column="0" Grid.Row="0" Content="Color de _fondo" Target="{Binding ElementName=ColorFondoComboBox}"></Label>
+            <ComboBox TabIndex="1" x:Name="ColorFondoComboBox" Margin="0,10,5,25" Grid.Column="1" Grid.Row="0" SelectedItem="{Binding Source={x:Static properties:Settings.Default},Path=BackgroundColor,Converter={StaticResource StringToColor}, Mode=OneWay}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Rectangle Fill="{Binding Name}" Margin="2,2,2,2"></Rectangle>
+                            <TextBlock Text="{Binding Name}" ></TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+
+            <Label Margin="0,10,0,25" Grid.Column="0" Grid.Row="1" Content="Color del _usuario" Target="{Binding ElementName=ColorUsuarioComboBox}"></Label>
+            <ComboBox TabIndex="2" x:Name="ColorUsuarioComboBox" Margin="0,10,5,25" Grid.Column="1" Grid.Row="1" SelectedItem="{Binding Source={x:Static properties:Settings.Default},Path=BackgroundColor,Converter={StaticResource StringToColor}, Mode=OneWay}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Rectangle Fill="{Binding Name}" Margin="2,2,2,2"></Rectangle>
+                            <TextBlock Text="{Binding Name}" ></TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+
+            <Label Margin="0,10,5,25" Grid.Column="0" Grid.Row="2" Content="Color de _robot" Target="{Binding ElementName=ColorRobotComboBox}"></Label>
+            <ComboBox TabIndex="3" x:Name="ColorRobotComboBox" Margin="0,10,5,25" Grid.Column="1" Grid.Row="2" SelectedItem="{Binding Source={x:Static properties:Settings.Default},Path=BackgroundColor,Converter={StaticResource StringToColor}, Mode=OneWay}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Rectangle Fill="{Binding Name}" Margin="2,2,2,2"></Rectangle>
+                            <TextBlock Text="{Binding Name}" ></TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+        </Grid>
+
+        <StackPanel Orientation="Horizontal">
+            <Button Content="_Aceptar" Width="100" Margin="165,5,5,5"></Button>
+            <Button Content="_Cancelar" Width="100" Margin="5,5,5,5" ></Button>
+        </StackPanel>
+        
+    </StackPanel>
+    
+</Window>

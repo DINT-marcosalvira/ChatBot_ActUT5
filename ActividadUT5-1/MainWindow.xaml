@@ -4,8 +4,17 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ActividadUT5_1"
+        xmlns:properties="clr-namespace:ActividadUT5_1.Properties"
         mc:Ignorable="d"
         Title="ChatBot" Height="600" Width="400" MinHeight="300" MinWidth="200" Icon="img/icon.ico">
+
+    <Window.CommandBindings>
+        <CommandBinding
+            Command="local:CustomCommands.OpenConf"
+            Executed="OpenConfig_Executed">
+        </CommandBinding>
+    </Window.CommandBindings>
+    
     <DockPanel LastChildFill="True">
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="_Archivo">
@@ -27,7 +36,7 @@
                 </MenuItem>
             </MenuItem>
             <MenuItem Header="_Herramientas">
-                <MenuItem Header="_Configuración..." InputGestureText="Ctrl+C">
+                <MenuItem Header="_Configuración..." InputGestureText="Ctrl+C" Command="local:CustomCommands.OpenConf">
                     <MenuItem.Icon>
                         <Image Source="img/conf.ico"></Image>
                     </MenuItem.Icon>
@@ -73,7 +82,9 @@
                 <Image Source="img/send.ico"></Image>
             </Button>
         </Grid>
-        <Border Background="BlanchedAlmond"></Border>
+
+        <ItemsControl x:Name="ChatItemsControl" Background="{Binding Source={x:Static properties:Settings.Default},Path=BackgroundColor}" ItemsSource="{Binding}">
+        </ItemsControl>
     </DockPanel>
     
 </Window>

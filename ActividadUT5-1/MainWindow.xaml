@@ -13,6 +13,10 @@
             Command="local:CustomCommands.OpenConf"
             Executed="OpenConfig_Executed">
         </CommandBinding>
+        <CommandBinding
+            Command="local:CustomCommands.Exit"
+            Executed="Exit_Executed"
+            ></CommandBinding>
     </Window.CommandBindings>
     
     <DockPanel LastChildFill="True">
@@ -29,7 +33,7 @@
                     </MenuItem.Icon>
                 </MenuItem>
                 <Separator/>
-                <MenuItem Header="_Salir" InputGestureText="Ctrl+S">
+                <MenuItem Header="_Salir" InputGestureText="Ctrl+S" Command="local:CustomCommands.Exit">
                     <MenuItem.Icon>
                         <Image Source="img/exit.ico"></Image>
                     </MenuItem.Icon>
@@ -50,21 +54,21 @@
         </Menu>
         <ToolBarTray DockPanel.Dock="Top">
             <ToolBar>
-                <Button>
+                <Button ToolTip="Nueva conversación">
                     <Image Height="28" Source="img/newchat.ico"></Image>
                 </Button>
-                <Button>
+                <Button ToolTip="Guardar conversación">
                     <Image Height="28" Source="img/save.ico"></Image>
                 </Button>
                 <Separator/>
-                <Button>
+                <Button ToolTip="Configuración">
                     <Image Height="28" Source="img/conf.ico"></Image>
                 </Button>
-                <Button>
+                <Button ToolTip="Comprobar conexión">
                     <Image Height="28" Source="img/connect.ico"></Image>
                 </Button>
                 <Separator/>
-                <Button>
+                <Button Command="local:CustomCommands.Exit" ToolTip="Salir">
                     <Image Height="28" Source="img/exit.ico"></Image>
                 </Button>
             </ToolBar>

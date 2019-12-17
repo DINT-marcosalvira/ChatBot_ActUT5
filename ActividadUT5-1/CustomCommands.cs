@@ -17,5 +17,14 @@ namespace ActividadUT5_1
                     new KeyGesture(Key.C, ModifierKeys.Control)
                 }
             );
+
+        public static readonly RoutedUICommand Exit = new RoutedUICommand
+            (
+                "Exit", "Exit", typeof(CustomCommands),
+                new InputGestureCollection()
+                {
+                    new KeyGesture(Key.S, ModifierKeys.Control)
+                }
+            );
     }
 }

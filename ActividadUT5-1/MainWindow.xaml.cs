@@ -32,6 +32,10 @@ namespace ActividadUT5_1
             ventanaConf.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             ventanaConf.Show();
         }
-        
+
+        private void Exit_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }

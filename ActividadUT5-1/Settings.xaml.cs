@@ -22,6 +22,8 @@ namespace ActividadUT5_1
         public Settings()
         {
             InitializeComponent();
+
+            ColorFondoComboBox.ItemsSource = typeof(Colors).GetProperties();
         }
     }
 }

@@ -140,5 +140,8 @@
   <ItemGroup>
     <Resource Include="img\send.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="converter\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

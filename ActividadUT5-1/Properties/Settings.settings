@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="BackgroundColor" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Brown</Value>
+      <Value Profile="(Default)">BurlyWood</Value>
     </Setting>
     <Setting Name="MessageUserColor" Type="System.String" Scope="User">
       <Value Profile="(Default)">Red</Value>

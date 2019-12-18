@@ -74,6 +74,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Bot.cs" />
     <Compile Include="CustomCommands.cs" />
     <Compile Include="Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
@@ -140,8 +141,6 @@
   <ItemGroup>
     <Resource Include="img\send.ico" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="converter\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

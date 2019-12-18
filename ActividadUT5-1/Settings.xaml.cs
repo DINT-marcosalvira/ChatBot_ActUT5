@@ -43,5 +43,10 @@ namespace ActividadUT5_1
 
             Close();
         }
+
+        private void Exit_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }

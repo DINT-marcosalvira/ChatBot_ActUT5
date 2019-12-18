@@ -7,6 +7,13 @@
         xmlns:properties="clr-namespace:ActividadUT5_1.Properties"
         mc:Ignorable="d"
         Title="Configuración de la aplicación " Height="250" Width="400" ShowInTaskbar="False" ResizeMode="NoResize" Icon="img/conf.ico">
+
+    <Window.CommandBindings>
+        <CommandBinding
+            Command="local:CustomCommands.Exit"
+            Executed="Exit_Executed"
+            ></CommandBinding>
+    </Window.CommandBindings>
     <StackPanel Orientation="Vertical">
         <Grid>
             <Grid.RowDefinitions>
@@ -20,7 +27,7 @@
             </Grid.ColumnDefinitions>
 
             <Label Margin="0,10,5,25" Grid.Column="0" Grid.Row="0" Content="Color de _fondo" Target="{Binding ElementName=ColorFondoComboBox}"></Label>
-            <ComboBox TabIndex="1" x:Name="ColorFondoComboBox" Margin="0,10,5,25" Grid.Column="1" Grid.Row="0" SelectedItem="{Binding Source={x:Static properties:Settings.Default},Path=BackgroundColor, Mode=OneWay}">
+            <ComboBox SelectedValuePath="Name" TabIndex="1" x:Name="ColorFondoComboBox" Margin="0,10,5,25" Grid.Column="1" Grid.Row="0" SelectedValue="{Binding Source={x:Static properties:Settings.Default},Path=BackgroundColor, Mode=OneWay}">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
@@ -32,7 +39,7 @@
             </ComboBox>
 
             <Label Margin="0,10,0,25" Grid.Column="0" Grid.Row="1" Content="Color del _usuario" Target="{Binding ElementName=ColorUsuarioComboBox}"></Label>
-            <ComboBox TabIndex="2" x:Name="ColorUsuarioComboBox" Margin="0,10,5,25" Grid.Column="1" Grid.Row="1" SelectedItem="{Binding Source={x:Static properties:Settings.Default},Path=BackgroundColor, Mode=OneWay}">
+            <ComboBox SelectedValuePath="Name" TabIndex="2" x:Name="ColorUsuarioComboBox" Margin="0,10,5,25" Grid.Column="1" Grid.Row="1" SelectedValue="{Binding Source={x:Static properties:Settings.Default},Path=MessageUserColor, Mode=OneWay}">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
@@ -44,7 +51,7 @@
             </ComboBox>
 
             <Label Margin="0,10,5,25" Grid.Column="0" Grid.Row="2" Content="Color de _robot" Target="{Binding ElementName=ColorRobotComboBox}"></Label>
-            <ComboBox TabIndex="3" x:Name="ColorRobotComboBox" Margin="0,10,5,25" Grid.Column="1" Grid.Row="2" SelectedItem="{Binding Source={x:Static properties:Settings.Default},Path=BackgroundColor , Mode=OneWay}">
+            <ComboBox SelectedValuePath="Name" TabIndex="3" x:Name="ColorRobotComboBox" Margin="0,10,5,25" Grid.Column="1" Grid.Row="2" SelectedValue="{Binding Source={x:Static properties:Settings.Default},Path=MessageBotColor, Mode=OneWay}">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
@@ -58,7 +65,7 @@
 
         <StackPanel Orientation="Horizontal">
             <Button IsDefault="True" Content="_Aceptar" Width="100" Margin="165,5,5,5" Click="AceptarButton_Click"></Button>
-            <Button IsCancel="True" Content="_Cancelar" Width="100" Margin="5,5,5,5" ></Button>
+            <Button Command="local:CustomCommands.Exit" Content="_Cancelar" Width="100" Margin="5,5,5,5" ></Button>
         </StackPanel>
         
     </StackPanel>

@@ -25,7 +25,7 @@ namespace ActividadUT5_1.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Brown")]
+        [global::System.Configuration.DefaultSettingValueAttribute("BurlyWood")]
         public string BackgroundColor {
             get {
                 return ((string)(this["BackgroundColor"]));

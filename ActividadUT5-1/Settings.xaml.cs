@@ -24,6 +24,24 @@ namespace ActividadUT5_1
             InitializeComponent();
 
             ColorFondoComboBox.ItemsSource = typeof(Colors).GetProperties();
+            ColorUsuarioComboBox.ItemsSource = typeof(Colors).GetProperties();
+            ColorRobotComboBox.ItemsSource = typeof(Colors).GetProperties();
+        }
+
+        private void AceptarButton_Click(object sender, RoutedEventArgs e)
+        {
+            string s;
+
+            s = ColorFondoComboBox.SelectedItem.ToString().Split(' ').Last();
+            Properties.Settings.Default.BackgroundColor = s;
+
+            s = ColorUsuarioComboBox.SelectedItem.ToString().Split(' ').Last();
+            Properties.Settings.Default.MessageUserColor = s;
+
+            s = ColorRobotComboBox.SelectedItem.ToString().Split(' ').Last();
+            Properties.Settings.Default.MessageBotColor = s;
+
+            Close();
         }
     }
 }

@@ -76,6 +76,7 @@
     </ApplicationDefinition>
     <Compile Include="Bot.cs" />
     <Compile Include="CustomCommands.cs" />
+    <Compile Include="Message.cs" />
     <Compile Include="Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>

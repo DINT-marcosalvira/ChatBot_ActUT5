@@ -2,6 +2,7 @@
 using Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -17,6 +18,22 @@ namespace ActividadUT5_1
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
         private readonly QnAMakerRuntimeClient server;
+
+        public Bot()
+        {
+            string EndPoint = "https://botactividaddint.azurewebsites.net";
+            string Key = "9c1c31bb-5ad4-44c4-b5f9-c36256871454";
+            server = new QnAMakerRuntimeClient(new EndpointKeyServiceClientCredentials(Key)) { RuntimeEndpoint = EndPoint };
+        }
+
+        public async Task MakeQuestion(string question, ObservableCollection<Message> messages)
+        {
+            string id = "68c6efd8-5210-45dd-b60c-722c64c4f9fc";
+            QnASearchResultList response = await server.Runtime.GenerateAnswerAsync(id, new QueryDTO { Question = question });
+
+            messages.Add(new Message(Message.SenderType.User, response.Answers[0].Answer));
+        }
+
         public async Task<bool> ComprobarConexion()
         {
             string id = "68c6efd8-5210-45dd-b60c-722c64c4f9fc";

@@ -26,5 +26,23 @@ namespace ActividadUT5_1
                     new KeyGesture(Key.S, ModifierKeys.Control)
                 }
             );
+
+        public static readonly RoutedUICommand SendMessage = new RoutedUICommand
+            (
+                "SendMessage", "SendMessage", typeof(CustomCommands),
+                new InputGestureCollection()
+                {
+                    new KeyGesture(Key.Enter)
+                }
+            );
+
+        public static readonly RoutedUICommand NewChat = new RoutedUICommand
+            (
+                "NewChat", "NewChat", typeof(CustomCommands),
+                new InputGestureCollection()
+                {
+                    new KeyGesture(Key.N, ModifierKeys.Control)
+                }
+            );
     }
 }

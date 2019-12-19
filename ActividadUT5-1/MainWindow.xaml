@@ -30,6 +30,17 @@
             Executed="OpenConfig_Executed">
         </CommandBinding>
         <CommandBinding
+            Command="local:CustomCommands.SendMessage"
+            Executed="SendMessage_Executed"
+            CanExecute="SendMessage_CanExecute">
+        </CommandBinding>
+        <CommandBinding
+            Command="local:CustomCommands.NewChat"
+            Executed="NewChat_Executed"
+            CanExecute="NewChat_CanExecute">
+        </CommandBinding>
+            
+        <CommandBinding
             Command="local:CustomCommands.Exit"
             Executed="Exit_Executed"
             ></CommandBinding>
@@ -38,7 +49,7 @@
     <DockPanel LastChildFill="True">
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="_Archivo">
-                <MenuItem Header="_Nueva conversación" InputGestureText="Ctrl+N">
+                <MenuItem Header="_Nueva conversación" Command="local:CustomCommands.NewChat" InputGestureText="Ctrl+N">
                     <MenuItem.Icon>
                         <Image Source="img/newchat.ico"></Image>
                     </MenuItem.Icon>
@@ -70,14 +81,14 @@
         </Menu>
         <ToolBarTray DockPanel.Dock="Top">
             <ToolBar>
-                <Button ToolTip="Nueva conversación">
+                <Button Command="local:CustomCommands.NewChat" ToolTip="Nueva conversación">
                     <Image Height="28" Source="img/newchat.ico"></Image>
                 </Button>
                 <Button ToolTip="Guardar conversación">
                     <Image Height="28" Source="img/save.ico"></Image>
                 </Button>
                 <Separator/>
-                <Button ToolTip="Configuración">
+                <Button Command="local:CustomCommands.OpenConf" ToolTip="Configuración">
                     <Image Height="28" Source="img/conf.ico"></Image>
                 </Button>
                 <Button ToolTip="Comprobar conexión">
@@ -98,7 +109,7 @@
                 <RowDefinition Height="35"></RowDefinition>
             </Grid.RowDefinitions>
             <TextBox FontSize="20" Height="35" Grid.Column="0" Grid.Row="0" BorderBrush="Black" x:Name="MensajeTextBox" BorderThickness="2" VerticalAlignment="Center"></TextBox>
-            <Button Grid.Column="1" Grid.Row="0">
+            <Button Command="local:CustomCommands.SendMessage" Grid.Column="1" Grid.Row="0">
                 <Image Source="img/send.ico"></Image>
             </Button>
         </Grid>

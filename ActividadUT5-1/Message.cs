@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ActividadUT5_1
 {
-    class Message : INotifyPropertyChanged
+    public class Message : INotifyPropertyChanged
     {
         
         public enum SenderMessage { Bot, Person }

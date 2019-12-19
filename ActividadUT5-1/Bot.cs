@@ -26,7 +26,7 @@ namespace ActividadUT5_1
             server = new QnAMakerRuntimeClient(new EndpointKeyServiceClientCredentials(Key)) { RuntimeEndpoint = EndPoint };
         }
 
-        public async Task MakeQuestion(string question, ObservableCollection<Message> messages)
+        public async Task SendQuestion(string question, ObservableCollection<Message> messages)
         {
             string id = "68c6efd8-5210-45dd-b60c-722c64c4f9fc";
             QnASearchResultList response = await server.Runtime.GenerateAnswerAsync(id, new QueryDTO { Question = question });

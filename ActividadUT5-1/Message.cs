@@ -9,10 +9,9 @@ namespace ActividadUT5_1
 {
     class Message : INotifyPropertyChanged
     {
-        public static string User;
-        public static string Bot;
-        public static string SenderMessage = User;
-
+        
+        public enum SenderMessage { Bot, Person }
+        public SenderMessage SenderType { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -38,7 +37,11 @@ namespace ActividadUT5_1
             }
         }
         
-
+        public Message(SenderMessage senderType, string textoMensaje)
+        {
+            TextoMensaje = textoMensaje;
+            SenderType = senderType;
+        }
 
     }
 }

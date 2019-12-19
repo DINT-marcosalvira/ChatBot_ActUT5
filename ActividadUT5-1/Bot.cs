@@ -30,8 +30,8 @@ namespace ActividadUT5_1
         {
             string id = "68c6efd8-5210-45dd-b60c-722c64c4f9fc";
             QnASearchResultList response = await server.Runtime.GenerateAnswerAsync(id, new QueryDTO { Question = question });
-
-            messages.Add(new Message(Message.SenderType.User, response.Answers[0].Answer));
+            string responseString = response.Answers[0].Answer;
+            messages.Add(new Message(Message.SenderMessage.Person, response.Answers[0].Answer));
         }
 
         public async Task<bool> ComprobarConexion()

@@ -8,6 +8,22 @@
         mc:Ignorable="d"
         Title="ChatBot" Height="600" Width="400" MinHeight="300" MinWidth="200" Icon="img/icon.ico">
 
+    <Window.Resources>
+        <Style TargetType="Border" x:Key="BorderStyle">
+            <Setter Property="CornerRadius" Value="18"/>
+            <Setter Property="Margin" Value="4"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Background" Value="{Binding Source={x:Static properties:Settings.Default},Path=MessageUserColor}" />
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Path=Sender}" Value="{x:Static local:Message+SenderMessage.Bot}">
+                    <Setter Property="Background" Value="{Binding Source={x:Static properties:Settings.Default},Path=MessageBotColor}" />
+                    <Setter Property="HorizontalAlignment" Value="Right"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
     <Window.CommandBindings>
         <CommandBinding
             Command="local:CustomCommands.OpenConf"
@@ -88,6 +104,19 @@
         </Grid>
 
         <ItemsControl x:Name="ChatItemsControl" Background="{Binding Source={x:Static properties:Settings.Default},Path=BackgroundColor}" ItemsSource="{Binding}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Border Style="{StaticResource BorderStyle}">
+                        <StackPanel Orientation="Vertical">
+                            <StackPanel Orientation="Horizontal">
+                                <Image></Image>
+                                <TextBlock></TextBlock>
+                            </StackPanel>
+                            <TextBlock TextWrapping="Wrap" Margin="0,10,0,0" Text="{Binding TextoMensaje}" ></TextBlock>
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
         </ItemsControl>
     </DockPanel>
     

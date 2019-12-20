@@ -156,6 +156,7 @@
                 <Image Source="img/send.ico"></Image>
             </Button>
         </Grid>
+        
 
         <ScrollViewer x:Name="ChatScrollViewer" VerticalScrollBarVisibility="Auto">
         <ItemsControl x:Name="ChatItemsControl" Background="{Binding Source={x:Static properties:Settings.Default},Path=BackgroundColor}" ItemsSource="{Binding}">

@@ -64,6 +64,7 @@ namespace ActividadUT5_1
             {
                 listMessages.Add(new Message(Message.SenderMessage.Bot, "Algo va mal..."));
             }
+            ChatScrollViewer.ScrollToEnd();
             isThinking = false;
         }
 
@@ -112,20 +113,31 @@ namespace ActividadUT5_1
             e.CanExecute = !isCheckingConnection;
         }
 
+        private string EscribirChat()
+        {
+            string cadena = "";
+            foreach (Message m in listMessages)
+            {
+                cadena += m.ToString() + " \n";
+            }
+
+            return cadena;
+        }
+
         private void SaveChat_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             Microsoft.Win32.SaveFileDialog dialogo = new Microsoft.Win32.SaveFileDialog();
             dialogo.DefaultExt = ".txt";
             dialogo.Title = "Guardar como: ";
-            dialogo.FileName = $"ChatBot_" + DateTime.Today.ToShortDateString();
+            dialogo.FileName = $"ChatBot_(yourName)";
             dialogo.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            dialogo.ShowDialog(); 
 
-            StreamWriter sw = new StreamWriter(dialogo.FileName, true);
-            foreach (Message message in listMessages)
+            if (dialogo.ShowDialog() == true)
             {
-                sw.WriteLine(message.ToString());
-            }
+                File.WriteAllText(dialogo.FileName, EscribirChat());
+            } 
+
+            
             
         }
 

@@ -6,10 +6,10 @@
       <Value Profile="(Default)">BurlyWood</Value>
     </Setting>
     <Setting Name="MessageUserColor" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Red</Value>
+      <Value Profile="(Default)">Salmon</Value>
     </Setting>
     <Setting Name="MessageBotColor" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Green</Value>
+      <Value Profile="(Default)">LemonChiffon</Value>
     </Setting>
   </Settings>
 </SettingsFile>

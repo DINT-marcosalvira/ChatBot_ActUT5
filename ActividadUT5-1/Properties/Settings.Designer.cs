@@ -37,7 +37,7 @@ namespace ActividadUT5_1.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Red")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Salmon")]
         public string MessageUserColor {
             get {
                 return ((string)(this["MessageUserColor"]));
@@ -49,7 +49,7 @@ namespace ActividadUT5_1.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Green")]
+        [global::System.Configuration.DefaultSettingValueAttribute("LemonChiffon")]
         public string MessageBotColor {
             get {
                 return ((string)(this["MessageBotColor"]));

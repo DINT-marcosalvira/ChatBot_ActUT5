@@ -44,5 +44,14 @@ namespace ActividadUT5_1
                     new KeyGesture(Key.N, ModifierKeys.Control)
                 }
             );
+
+        public static readonly RoutedUICommand CheckConnection = new RoutedUICommand
+            (
+                "CheckConnection", "CheckConnection", typeof(CustomCommands),
+                new InputGestureCollection()
+                {
+                    new KeyGesture(Key.O, ModifierKeys.Control)
+                }
+            );
     }
 }

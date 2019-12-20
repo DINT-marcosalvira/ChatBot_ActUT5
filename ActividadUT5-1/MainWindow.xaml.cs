@@ -21,7 +21,8 @@ namespace ActividadUT5_1
     /// </summary>
     public partial class MainWindow : Window
     {
-
+        bool isCheckingConnection = false;
+        bool isThinking = false;
         private ObservableCollection<Message> listMessages;
         private Bot botQnM;
         public MainWindow()
@@ -49,6 +50,7 @@ namespace ActividadUT5_1
 
         private async void SendMessage_Executed(object sender, ExecutedRoutedEventArgs e)
         {
+            isThinking = true;
             string pregunta = MensajeTextBox.Text.ToString();
             listMessages.Add(new Message(Message.SenderMessage.Person, pregunta));
             MensajeTextBox.Text = "";
@@ -61,11 +63,12 @@ namespace ActividadUT5_1
             {
                 listMessages.Add(new Message(Message.SenderMessage.Bot, "Algo va mal..."));
             }
+            isThinking = false;
         }
 
         private void SendMessage_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-            if(!MensajeTextBox.Text.Equals(String.Empty))
+            if(!MensajeTextBox.Text.Equals(String.Empty) && !isThinking)
             {
                 e.CanExecute = true;
             }
@@ -80,5 +83,33 @@ namespace ActividadUT5_1
         {
             e.CanExecute = listMessages.Count > 0;
         }
+
+        private async void CheckConnection_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            isCheckingConnection = true;
+
+            bool check = await botQnM.ComprobarConexion();
+
+            string cadenaConexión;
+            MessageBoxImage m;
+            if (check)
+            {
+                cadenaConexión = "Conexión exitosa";
+                m = MessageBoxImage.Asterisk;
+            }
+            else
+            {
+                cadenaConexión = "ERROR: Sin conexión";
+                m = MessageBoxImage.Error;
+            }
+            MessageBox.Show(cadenaConexión, "Test de conexión", MessageBoxButton.OK, m, MessageBoxResult.OK);
+            isCheckingConnection = false;
+        }
+
+        private void CheckConnection_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = !isCheckingConnection;
+        }
+        
     }
 }

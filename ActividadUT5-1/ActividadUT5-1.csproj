@@ -142,6 +142,9 @@
   <ItemGroup>
     <Resource Include="img\send.ico" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="img\botchat.ico" />
+    <Resource Include="img\user.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

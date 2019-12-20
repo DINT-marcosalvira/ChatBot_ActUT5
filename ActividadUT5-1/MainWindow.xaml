@@ -17,7 +17,7 @@
             <Setter Property="BorderThickness" Value="2"/>
             <Setter Property="BorderBrush" Value="Black"/>
             <Style.Triggers>
-                <DataTrigger Binding="{Binding Path=Sender}" Value="{x:Static local:Message+SenderMessage.Bot}">
+                <DataTrigger Binding="{Binding Path=SenderType}" Value="{x:Static local:Message+SenderMessage.Bot}">
                     <Setter Property="Background" Value="{Binding Source={x:Static properties:Settings.Default},Path=MessageBotColor}" />
                     <Setter Property="HorizontalAlignment" Value="Right"/>
                 </DataTrigger>

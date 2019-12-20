@@ -76,7 +76,13 @@
             Executed="NewChat_Executed"
             CanExecute="NewChat_CanExecute">
         </CommandBinding>
-            
+
+        <CommandBinding
+            Command="local:CustomCommands.SaveChat"
+            Executed="SaveChat_Executed"
+            CanExecute="SaveChat_CanExecute">
+        </CommandBinding>
+
         <CommandBinding
             Command="local:CustomCommands.Exit"
             Executed="Exit_Executed"
@@ -91,7 +97,7 @@
                         <Image Source="img/newchat.ico"></Image>
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="_Guardar conversación" InputGestureText="Ctrl+G">
+                <MenuItem Header="_Guardar conversación" Command="local:CustomCommands.SaveChat" InputGestureText="Ctrl+G">
                     <MenuItem.Icon>
                         <Image Source="img/save.ico"></Image>
                     </MenuItem.Icon>
@@ -121,7 +127,7 @@
                 <Button Command="local:CustomCommands.NewChat" ToolTip="Nueva conversación">
                     <Image Height="28" Source="img/newchat.ico"></Image>
                 </Button>
-                <Button ToolTip="Guardar conversación">
+                <Button ToolTip="Guardar conversación" Command="local:CustomCommands.SaveChat">
                     <Image Height="28" Source="img/save.ico"></Image>
                 </Button>
                 <Separator/>

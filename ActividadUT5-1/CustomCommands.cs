@@ -18,6 +18,15 @@ namespace ActividadUT5_1
                 }
             );
 
+        public static readonly RoutedUICommand SaveChat = new RoutedUICommand
+            (
+                "SaveChat", "SaveChat", typeof(CustomCommands),
+                new InputGestureCollection()
+                {
+                    new KeyGesture(Key.G, ModifierKeys.Control)
+                }
+            );
+
         public static readonly RoutedUICommand Exit = new RoutedUICommand
             (
                 "Exit", "Exit", typeof(CustomCommands),

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -110,6 +111,27 @@ namespace ActividadUT5_1
         {
             e.CanExecute = !isCheckingConnection;
         }
-        
+
+        private void SaveChat_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            Microsoft.Win32.SaveFileDialog dialogo = new Microsoft.Win32.SaveFileDialog();
+            dialogo.DefaultExt = ".txt";
+            dialogo.Title = "Guardar como: ";
+            dialogo.FileName = $"ChatBot_" + DateTime.Today.ToShortDateString();
+            dialogo.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            dialogo.ShowDialog(); 
+
+            StreamWriter sw = new StreamWriter(dialogo.FileName, true);
+            foreach (Message message in listMessages)
+            {
+                sw.WriteLine(message.ToString());
+            }
+            
+        }
+
+        private void SaveChat_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = listMessages.Count > 0;
+        }
     }
 }

@@ -43,5 +43,9 @@ namespace ActividadUT5_1
             SenderType = senderType;
         }
 
+        public override string ToString()
+        {
+            return SenderType.ToString() + " - " + TextoMensaje;
+        }
     }
 }
